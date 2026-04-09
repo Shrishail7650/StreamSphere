@@ -1,20 +1,18 @@
-export default function Languages() {
-  const langs = ["Hindi", "English", "Tamil", "Telugu", "Korean"];
-
+export default function Languages({ items }) {
   return (
-    <div className="px-6 py-6">
-      <h2 className="text-xl mb-3">Browse by Language</h2>
+    <section className="px-6 py-6 md:px-10">
+      <h2 className="mb-3 text-xl font-semibold">Browse by Language</h2>
 
-      <div className="flex gap-3 flex-wrap">
-        {langs.map((lang, i) => (
+      <div className="flex flex-wrap gap-3">
+        {items.map((lang) => (
           <span
-            key={i}
-            className="bg-gray-800 px-4 py-2 rounded-full hover:bg-red-600 cursor-pointer"
+            key={lang}
+            className="cursor-pointer rounded-full border border-white/10 bg-white/5 px-4 py-2 transition hover:border-red-500 hover:bg-red-600"
           >
             {lang}
           </span>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

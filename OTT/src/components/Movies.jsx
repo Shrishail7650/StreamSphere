@@ -1,23 +1,29 @@
 export default function Movies({ data }) {
   return (
-    <div className="px-6 py-6">
-      <h2 className="text-xl mb-4">Popular Movies</h2>
+    <section className="px-6 py-6 md:px-10">
+      <h2 className="mb-4 text-xl font-semibold">Popular Movies</h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {data.map((movie, i) => (
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+        {data.map((movie) => (
           <div
-            key={i}
-            className="bg-gray-800 p-3 rounded-xl hover:scale-105 transition"
+            key={movie.title}
+            className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition hover:scale-[1.02]"
           >
-            <div className="h-32 bg-gray-700 rounded mb-2"></div>
-            <p className="font-semibold">{movie.title}</p>
-            <p className="text-xs text-gray-400">
+            <img
+              src={movie.image}
+              alt={movie.title}
+              className="h-56 w-full object-cover"
+            />
+            <div className="p-3">
+              <p className="font-semibold">{movie.title}</p>
+              <p className="text-xs text-gray-400">
               {movie.genre} • {movie.year}
-            </p>
-            <p className="text-yellow-400 text-sm">⭐ {movie.rating}</p>
+              </p>
+              <p className="text-sm text-amber-300">★ {movie.rating}</p>
+            </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
